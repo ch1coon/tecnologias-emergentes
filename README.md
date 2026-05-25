@@ -41,6 +41,8 @@ O objetivo principal é oferecer uma ferramenta simples e objetiva para o contro
 
 Funcionalidades complementares previstas para entregas futuras: filtros por status e prioridade, busca por título.
 
+O **cronograma de desenvolvimento** (período de **15/05 a 31/05/2026**, metodologia Scrum, tarefas e prazos) está documentado em [CRONOGRAMA.md](./CRONOGRAMA.md).
+
 ---
 
 ## Autor
@@ -54,6 +56,6 @@ Funcionalidades complementares previstas para entregas futuras: filtros por stat
 | Checkpoint | Descrição                                      | Status        |
 |------------|------------------------------------------------|---------------|
 | 01         | README com identificação e objetivo            | Concluído     |
-| 02         | Cronograma e tarefas com prazos                 | Pendente      |
+| 02         | Cronograma e tarefas com prazos                 | Concluído     |
 | 03         | Cronograma front/back e progresso (entrega 31/05) | Pendente   |
 | Final      | CRUD completo, testes, hospedagem e documentação | Pendente    |
