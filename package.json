@@ -1,0 +1,15 @@
+{
+  "name": "taskflow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TaskFlow — CRUD de tarefas com React, Express e PostgreSQL",
+  "scripts": {
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev": "npm run dev:backend & npm run dev:frontend",
+    "test": "npm run test --prefix backend && npm run test --prefix frontend",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "setup": "npm run db:up && npm install --prefix backend && npm install --prefix frontend && cp -n backend/.env.example backend/.env && npm run db:generate --prefix backend && npm run db:push --prefix backend && npm run db:seed --prefix backend"
+  }
+}

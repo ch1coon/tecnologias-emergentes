@@ -1,0 +1,607 @@
+:root {
+  --bg: #0f1419;
+  --surface: #1a2332;
+  --surface-elevated: #243044;
+  --border: #2d3a4f;
+  --text: #e8edf4;
+  --text-muted: #8b9cb3;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  font-family: "DM Sans", system-ui, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top left, rgba(59, 130, 246, 0.12), transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(34, 197, 94, 0.08), transparent 50%),
+    var(--bg);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: var(--surface-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+button.secondary:hover:not(:disabled) {
+  background: var(--border);
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+button.danger:hover:not(:disabled) {
+  background: var(--danger-hover);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid rgba(59, 130, 246, 0.45);
+  outline-offset: 1px;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.header-brand {
+  flex: 0 0 auto;
+  min-width: 140px;
+}
+
+.eyebrow {
+  margin: 0 0 0.25rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  letter-spacing: -0.03em;
+}
+
+.task-filters {
+  display: flex;
+  flex: 1 1 320px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem 1rem;
+}
+
+.filter-field {
+  flex: 1 1 140px;
+  margin-bottom: 0;
+  min-width: 120px;
+}
+
+.filter-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.filter-field input,
+.filter-field select {
+  margin-top: 0;
+}
+
+.btn-new-task {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding: 0.7rem 1.25rem;
+}
+
+.app-main {
+  min-height: 400px;
+}
+
+.task-form h2 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+}
+
+.form-row {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.form-error {
+  color: #fca5a5;
+  margin: 0 0 1rem;
+}
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.task-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+}
+
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.task-card-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge.status-pendente {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+.badge.status-em_andamento {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+.badge.status-concluida {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+.task-description {
+  margin: 0.75rem 0 0;
+  color: var(--text-muted);
+}
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.task-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.task-due-progress {
+  margin: 1rem -1.25rem -1.25rem;
+  padding: 0.85rem 1.25rem 1rem;
+  background: rgba(0, 0, 0, 0.18);
+  border-top: 1px solid var(--border);
+}
+
+.task-due-progress-meta {
+  margin-bottom: 0.6rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.task-due-progress-timeline {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.task-due-progress-date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.task-due-progress-track {
+  position: relative;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: visible;
+}
+
+.task-due-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.35s ease;
+  overflow: hidden;
+}
+
+.task-due-progress-marker {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text);
+  border: 2px solid var(--surface-elevated);
+  transform: translate(-50%, -50%);
+  transition: left 0.35s ease;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35);
+}
+
+.task-due-progress-fill.ok {
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+
+.task-due-progress-fill.warning {
+  background: linear-gradient(90deg, #d97706, #fbbf24);
+}
+
+.task-due-progress-fill.danger,
+.task-due-progress-fill.overdue {
+  background: linear-gradient(90deg, #dc2626, #f87171);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2rem 1rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 100;
+}
+
+.modal {
+  width: min(480px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.modal-form {
+  width: min(760px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-form .task-form {
+  margin-top: 1rem;
+}
+
+.modal-form .task-form label:last-of-type {
+  margin-bottom: 0;
+}
+
+.date-picker {
+  position: relative;
+  margin-bottom: 0.85rem;
+}
+
+.date-picker-label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.date-picker-control {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.date-picker-trigger {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 500;
+  text-align: left;
+}
+
+.date-picker-trigger:hover {
+  border-color: var(--primary);
+  background: var(--bg);
+}
+
+.date-picker-placeholder {
+  color: var(--text-muted);
+}
+
+.date-picker-clear {
+  width: 2.5rem;
+  padding: 0;
+  background: var(--surface-elevated);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.date-picker-clear:hover {
+  background: var(--border);
+  color: var(--text);
+}
+
+.date-picker-popover {
+  padding: 1rem;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.date-picker-popover-portal {
+  position: fixed;
+  z-index: 1100;
+}
+
+.date-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.date-picker-month {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.date-picker-nav {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.date-picker-nav:hover {
+  background: var(--border);
+}
+
+.date-picker-weekdays,
+.date-picker-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+}
+
+.date-picker-weekdays {
+  margin-bottom: 0.35rem;
+}
+
+.date-picker-weekdays span {
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.date-picker-day {
+  aspect-ratio: 1;
+  padding: 0;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.date-picker-day:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.date-picker-day.selected {
+  background: var(--primary);
+  color: white;
+}
+
+.date-picker-day.selected:hover {
+  background: var(--primary-hover);
+}
+
+.date-picker-day.today:not(.selected) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.date-picker-day:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.date-picker-day.empty {
+  pointer-events: none;
+}
+
+.modal header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.icon-button {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.detail-list {
+  margin: 1.25rem 0 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.detail-list dt {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.detail-list dd {
+  margin: 0.15rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .app-header {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (max-width: 599px) {
+  .app {
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .app-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-new-task {
+    width: 100%;
+  }
+
+  .task-card-header {
+    flex-direction: column;
+  }
+}

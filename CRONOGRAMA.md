@@ -113,21 +113,27 @@ As tarefas abaixo compõem o **escopo da aplicação TaskFlow** e constam no cro
 
 ### Back-end (Node.js + Express + Prisma + PostgreSQL)
 
-| Tarefa                              | Prazo      | Status (31/05) |
-|-------------------------------------|------------|----------------|
-| Estrutura de pastas do servidor     | 29/05/2026 | Planejado      |
-| Configuração do ambiente e Prisma   | 31/05/2026 | Planejado      |
-| Schema da entidade Tarefa           | —          | Planejado      |
-| Endpoints CRUD (RF01–RF05)          | —          | Planejado      |
+| Tarefa                              | Prazo      | Status (entrega final) |
+|-------------------------------------|------------|------------------------|
+| Estrutura de pastas do servidor     | 29/05/2026 | Concluído              |
+| Configuração do ambiente e Prisma   | 31/05/2026 | Concluído              |
+| Schema da entidade Tarefa           | 07/06/2026 | Concluído              |
+| Endpoints CRUD (RF01–RF05)          | 07/06/2026 | Concluído              |
+| Validação com Zod (RNF04)           | 07/06/2026 | Concluído              |
+| Padrão Repository                   | 07/06/2026 | Concluído              |
+| Testes automatizados (RNF05)      | 07/06/2026 | Concluído              |
 
 ### Front-end (React + Vite + TypeScript)
 
-| Tarefa                              | Prazo      | Status (31/05) |
-|-------------------------------------|------------|----------------|
-| Estrutura de pastas do cliente      | 29/05/2026 | Planejado      |
-| Configuração do projeto Vite        | —          | Planejado      |
-| Telas CRUD (RF01–RF05)              | —          | Planejado      |
-| Integração com API (RT06)           | —          | Planejado      |
+| Tarefa                              | Prazo      | Status (entrega final) |
+|-------------------------------------|------------|------------------------|
+| Estrutura de pastas do cliente      | 29/05/2026 | Concluído              |
+| Configuração do projeto Vite        | 07/06/2026 | Concluído              |
+| Telas CRUD (RF01–RF05)              | 07/06/2026 | Concluído              |
+| Integração com API (RT06)           | 07/06/2026 | Concluído              |
+| Filtros e busca (RF06–RF08)         | 07/06/2026 | Concluído              |
+| Interface responsiva (RNF03)        | 07/06/2026 | Concluído              |
+| Testes de componentes (RNF05)       | 07/06/2026 | Concluído              |
 
 ---
 
@@ -144,13 +150,14 @@ As tarefas abaixo compõem o **escopo da aplicação TaskFlow** e constam no cro
 
 ---
 
-## Quadro Kanban — situação em 31/05
+## Quadro Kanban — situação na entrega final (07/06)
 
-| A fazer                    | Em andamento           | Em revisão | Concluído           |
-|----------------------------|------------------------|------------|---------------------|
-| RT02 — Ambiente            | RA03 — Checkpoint 03   | —          | RA01 — README CP01  |
-| RT03 — Estrutura front/back| RA02 — Cronograma CP02 |            |                     |
-| RF01–RF05 — CRUD           | RT01 — Repositório Git |            |                     |
+| A fazer | Em andamento | Em revisão | Concluído                                              |
+|---------|--------------|------------|--------------------------------------------------------|
+| —       | —            | —          | RA01–RA03 — Checkpoints 01, 02 e 03                    |
+|         |              |            | RT01–RT07 — Repositório, ambiente, estrutura e integração |
+|         |              |            | RF01–RF08 — CRUD, filtros e busca                      |
+|         |              |            | RNF01–RNF06 — Persistência, API, UI, testes e docs     |
 
 ---
 
